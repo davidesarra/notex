@@ -48,33 +48,12 @@ NoTeX was created to make writing and reading scientific Markdown files easy.
 
 ## Installation
 
-Clone the repository, then move into the directory install it.
-
-Whilst in the chosen virtual environment, from the directory where you want to
-install NoTeX (it can be used anywhere afterwards), run:
-
 ```bash
-git clone https://github.com/davidesarra/notex.git &&\
-cd notex &&\
-pip install -e .
+pip install notex
 ```
 
-NoTeX requires `pandoc`. See the
-[installation guide][pandoc_installation_guide] for your OS.
-
-To update NoTeX, from the installation folder run:
-
-```bash
-git pull origin master
-```
-
-To uninstall NoTeX run:
-
-```bash
-pip uninstall notex
-```
-
-And remove the installation folder.
+NoTeX supports Python `3.6` and `3.7`, and requires
+[`pandoc`][pandoc_installation_guide].
 
 ## Usage
 
