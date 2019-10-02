@@ -21,7 +21,7 @@ local function get_header_title (header)
     if not title then
       title = header.content
     else
-      error("More than one title declaration found")
+      error("More than one title found")
     end
   end
   return header
@@ -35,7 +35,7 @@ local function set_metadata_title (meta)
   if title then
     meta.title = title
   else
-    error("No title was found")
+    error("Title not found")
   end
 end
 

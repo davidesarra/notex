@@ -17,13 +17,13 @@ def convert_markdown_to_latex_pdf(filepath: str) -> None:
         )
     except RuntimeError as error:
         error_message = str(error)
-        if "No title was found" in error_message:
+        if "Title not found" in error_message:
             raise notex.exceptions.MissingTitle(
-                "No title was found in {}".format(filepath)
+                "Title not found in {}".format(filepath)
             ) from error
-        elif "More than one title declaration found" in error_message:
+        elif "More than one title found" in error_message:
             raise notex.exceptions.NonUniqueTitle(
-                "More than one title declaration found in {}".format(filepath)
+                "More than one title found in {}".format(filepath)
             ) from error
         raise notex.exceptions.ConversionError(
             "An error occurred when converting {}".format(filepath)
