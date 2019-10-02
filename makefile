@@ -21,5 +21,8 @@ test-release-package: build-package
 	python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 release-package: build-package
-	python -m twine upload dist/*
-
+	git checkout master && \
+	git pull origin master && \
+	git tag $(shell cat setup.py | tr "\n" " " | sed -E "s/.* VERSION = \"([0-9]+\.[0-9]+\.[0-9]+)\" .*/\1/g") && \
+	python -m twine upload dist/* && \
+	git push origin master --tags
