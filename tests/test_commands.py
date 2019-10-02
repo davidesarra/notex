@@ -31,17 +31,17 @@ def test_main(path):
         (
             "tests/data/double_title.md",
             notex.exceptions.NonUniqueTitle,
-            "^More than one title declaration found in .+$",
+            "^More than one title found in .+$",
         ),
         (
             "tests/data/double_header_title.md",
             notex.exceptions.NonUniqueTitle,
-            "^More than one title declaration found in .+$",
+            "^More than one title found in .+$",
         ),
         (
             "tests/data/missing_title.md",
             notex.exceptions.MissingTitle,
-            "^No title was found in .+$",
+            "^Title not found in .+$",
         ),
         (
             "tests/data/non_existing_file.md",
