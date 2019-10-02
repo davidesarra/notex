@@ -1,7 +1,7 @@
 # NoTeX
 
-NoTeX is simple CLI application to convert Markdown files into LaTeX-processed
-PDF files.
+NoTeX is a CLI application to convert Markdown files into LaTeX-processed PDF
+files.
 
 The title of the PDF is taken from the metadata or from the first-level header
 (`# Header`).
