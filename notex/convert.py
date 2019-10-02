@@ -11,7 +11,7 @@ def convert_markdown_to_latex_pdf(filepath: str) -> None:
             source_file=filepath,
             to="pdf",
             format="markdown",
-            extra_args=("--lua-filter", _get_extra_title_filter_path()),
+            extra_args=("--lua-filter", _get_extract_title_filter_path()),
             encoding="utf-8",
             outputfile=pathlib.Path(filepath).with_suffix(".pdf").as_posix(),
         )
@@ -30,7 +30,7 @@ def convert_markdown_to_latex_pdf(filepath: str) -> None:
         ) from error
 
 
-def _get_extra_title_filter_path() -> pathlib.PosixPath:
+def _get_extract_title_filter_path() -> pathlib.PosixPath:
     relative_path = "pandoc_filters/extract_title.lua"
     absolute_path = pathlib.Path(__file__).parent / relative_path
     return absolute_path
