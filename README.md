@@ -3,10 +3,27 @@
 NoTeX is a CLI application to convert Markdown files into LaTeX-processed PDF
 files.
 
-The title of the PDF is taken from the metadata or from the first-level header
-(`# Header`).
+## Installation
 
-The LaTeX conversion supports pandoc's [metadata] and [variables] declarations.
+```bash
+pip install notex
+```
+
+NoTeX supports Python `3.6` and `3.7`, and requires
+[`pandoc`][pandoc_installation_guide].
+
+## Usage
+
+You can generate a PDF for the markdown file `notes/machine_learning.md` with
+the command below. The output is stored in `notes/machine_learning.pdf`.
+
+```bash
+notex notes/machine_learning.md
+```
+
+The title for the LaTeX PDF is taken from the first-level header (`# Header`)
+or the metadata. Metadata is optional and is declared at the top of the
+markdown file using pandoc-style yaml [metadata].
 
 For example:
 
@@ -46,23 +63,6 @@ with others who might not be familiar with the MathJax syntax.
 
 NoTeX was created to make writing and reading scientific Markdown files easy.
 
-## Installation
-
-```bash
-pip install notex
-```
-
-NoTeX supports Python `3.6` and `3.7`, and requires
-[`pandoc`][pandoc_installation_guide].
-
-## Usage
-
-You can convert Markdown files individually, for example:
-
-```bash
-notex notes/machine_learning.md
-```
-
 ## Implementation
 
 NoTeX is Python CLI application based on [pandoc], another CLI application to
@@ -101,4 +101,3 @@ make test
 [original_md_syntax]:https://daringfireball.net/projects/markdown/syntax
 [pandoc]:https://pandoc.org/
 [pandoc_installation_guide]:https://pandoc.org/installing.html
-[variables]:https://pandoc.org/MANUAL.html#variables-for-latex
