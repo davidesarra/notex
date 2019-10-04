@@ -14,6 +14,7 @@ test:
 	pytest -v
 
 build-package:
+	rm -rf build dist && \
 	pip install --upgrade pip setuptools wheel twine && \
 	python setup.py sdist bdist_wheel
 
