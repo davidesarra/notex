@@ -57,3 +57,26 @@ def test_main_with_illegal_markdown(path, error, error_msg_pattern):
     # when
     with pytest.raises(error, match=error_msg_pattern):
         runner.invoke(cli=notex.commands.main, args=[path], catch_exceptions=False)
+
+
+def test_main_without_pandoc(mocker):
+    # given
+    path = "tests/data/full_metadata.md"
+    runner = testing.CliRunner()
+    pypandoc_mock = mocker.patch(
+        target="pypandoc.convert_file",
+        side_effect=OSError(
+            "No pandoc was found: either install pandoc and add it "
+            "to your PATH or or call pypandoc.download_pandoc(...) or "
+            "install pypandoc wheels with included pandoc."
+        ),
+        autospec=True,
+    )
+
+    # when
+    with pytest.raises(
+        notex.exceptions.PandocNotInstalled, match="^Pandoc not installed$"
+    ):
+        runner.invoke(cli=notex.commands.main, args=[path], catch_exceptions=False)
+
+    pypandoc_mock.assert_called_once()

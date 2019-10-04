@@ -15,6 +15,10 @@ def convert_markdown_to_latex_pdf(filepath: str) -> None:
             encoding="utf-8",
             outputfile=pathlib.Path(filepath).with_suffix(".pdf").as_posix(),
         )
+    except OSError as error:
+        error_message = str(error)
+        if "No pandoc was found" in error_message:
+            raise notex.exceptions.PandocNotInstalled("Pandoc not installed")
     except RuntimeError as error:
         error_message = str(error)
         if "Title not found" in error_message:

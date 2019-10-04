@@ -2,6 +2,10 @@ class NotexError(Exception):
     pass
 
 
+class PandocNotInstalled(NotexError):
+    pass
+
+
 class ConversionError(NotexError):
     pass
 
