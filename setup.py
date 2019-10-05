@@ -2,7 +2,7 @@ import setuptools
 
 
 NAME = "notex"
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 AUTHOR = "Davide Sarra"
 URL = "https://github.com/davidesarra/notex"
 DESCRIPTION = "Turning markdown notes with formulas into LaTeX PDFs "
